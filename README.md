@@ -22,6 +22,8 @@ The business requirement was to create an executive sales report for sales manag
 
 To construct the data model necessary for analysis and to meet the business needs outlined in the user stories, the following tables were extracted and transformed using SQL. Additionally, a sales budget data source provided in Excel format was integrated into the data model.
 
+---
+
 ### 📅 DIM_Calendar
 
 ```sql
@@ -39,3 +41,66 @@ FROM
   [AdventureWorksDW2019].[dbo].[DimDate]
 WHERE 
   CalendarYear >= 2019
+```
+
+---
+
+### 👥 DIM_Customers
+
+```sql
+-- Cleansed DIM_Customers Table --
+SELECT 
+  c.CustomerKey, 
+  c.FirstName AS [First Name], 
+  c.LastName AS [Last Name], 
+  c.FirstName + ' ' + c.LastName AS [Full Name], 
+  CASE c.Gender WHEN 'M' THEN 'Male' WHEN 'F' THEN 'Female' END AS Gender,
+  c.DateFirstPurchase, 
+  g.City AS [Customer City]
+FROM 
+  [AdventureWorksDW2019].[dbo].[DimCustomer] AS c
+  LEFT JOIN dbo.DimGeography AS g ON g.GeographyKey = c.GeographyKey 
+ORDER BY 
+  CustomerKey ASC
+```
+---
+
+### 📦 DIM_Products
+
+ ```sql
+  -- Cleansed DIM_Products Table --
+SELECT 
+  p.ProductKey, 
+  p.ProductAlternateKey AS ProductItemCode, 
+  p.EnglishProductName AS [Product Name], 
+  ps.EnglishProductSubcategoryName AS [Sub Category], 
+  pc.EnglishProductCategoryName AS [Product Category]
+FROM 
+  [AdventureWorksDW2019].[dbo].[DimProduct] AS p
+  LEFT JOIN dbo.DimProductSubcategory AS ps ON ps.ProductSubcategoryKey = p.ProductSubcategoryKey
+  LEFT JOIN dbo.DimProductCategory AS pc ON pc.ProductCategoryKey = ps.ProductCategoryKey
+ ```
+---
+
+## 📈 Dashboard Features
+
+- **Interactive Visualizations:**  
+  Dynamic charts and graphs that allow users to explore sales data interactively.
+
+- **Filtering Capabilities:**  
+  Ability to filter data by customer, product, and time period to gain specific insights.
+
+- **KPI Tracking:**  
+  Key Performance Indicators displayed to monitor sales performance against targets.
+
+- **Budget Comparison:**  
+  Visual comparisons between actual sales figures and budgeted targets.
+
+---
+
+## 🛠️ Tools & Technologies
+
+- **Data Extraction & Transformation:** SQL  
+- **Data Visualization:** Power BI  
+- **Data Sources:** AdventureWorksDW2019 Database, Excel (for sales budgets)
+
