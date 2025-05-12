@@ -1,6 +1,6 @@
 # AdventureWorks Sales Dashboard Project
 
-[![View this dashboard](https://prnt.sc/84T8cid7spdm)](https://app.powerbi.com/view?r=eyJrIjoiY2YwMTIyZGQtMWE3ZS00ZjJiLWJjMTQtYzQ1ZDQ2MThhNzM2IiwidCI6ImIzY2ZkYTA0LTQ1YmEtNDI3Ni05YTdkLTQzNjM3YzA2OTUyNyIsImMiOjR9)
+[![View this dashboard](https://img001.prntscr.com/file/img001/r9Mack7fTEqtUORI8RRf7g.png)](https://app.powerbi.com/view?r=eyJrIjoiY2YwMTIyZGQtMWE3ZS00ZjJiLWJjMTQtYzQ1ZDQ2MThhNzM2IiwidCI6ImIzY2ZkYTA0LTQ1YmEtNDI3Ni05YTdkLTQzNjM3YzA2OTUyNyIsImMiOjR9)
 
 **Project Overview:**  
 This project entails the development of an executive sales report tailored for sales managers. The primary objective is to provide insightful dashboards that facilitate data-driven decision-making.
